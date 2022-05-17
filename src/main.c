@@ -70,9 +70,11 @@ void app_main(void)
     const uint64_t ext_wakeup_pin_1_mask = 1ULL << ext_wakeup_pin_1;
     const int ext_wakeup_pin_2 = 4;
     const uint64_t ext_wakeup_pin_2_mask = 1ULL << ext_wakeup_pin_2;
+    const int ext_wakeup_pin_3 = 15;
+    const uint64_t ext_wakeup_pin_3_mask = 1ULL << ext_wakeup_pin_3;
 
-    printf("Enabling EXT1 wakeup on pins GPIO%d, GPIO%d\n", ext_wakeup_pin_1, ext_wakeup_pin_2);
-    esp_sleep_enable_ext1_wakeup(ext_wakeup_pin_1_mask | ext_wakeup_pin_2_mask, ESP_EXT1_WAKEUP_ANY_HIGH);
+    printf("Enabling EXT1 wakeup on pins GPIO%d, GPIO%d, GPIO%d\n", ext_wakeup_pin_1, ext_wakeup_pin_2, ext_wakeup_pin_3);
+    esp_sleep_enable_ext1_wakeup(ext_wakeup_pin_1_mask | ext_wakeup_pin_2_mask | ext_wakeup_pin_3_mask, ESP_EXT1_WAKEUP_ANY_HIGH);
 
     // Isolate GPIO12 pin from external circuits. This is needed for modules
     // which have an external pull-up resistor on GPIO12 (such as ESP32-WROVER)
